@@ -1,8 +1,13 @@
 import Vue from 'vue'
+
 import App from './App.vue'
-import './registerServiceWorker'
 import router from './router'
 import store from './store'
+import '@/misc/register-service-worker'
+import '@/misc/handle-network-status'
+import '@/firebase/init'
+import '@/firebase/authentication'
+import '@/misc/handle-apple-install-prompt'
 
 Vue.config.productionTip = false
 
