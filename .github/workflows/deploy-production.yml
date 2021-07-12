@@ -23,8 +23,8 @@ jobs:
         run: npm ci --cache-min=9999 --no-audit --progress=false
       # - name: Check prettier
       #   run: npm run prettier:check
-      - name: Check linter
-        run: npm run lint
+      # - name: Check linter
+      #   run: npm run lint
       - name: Check unit tests
         run: npm run test:unit
       # - name: Check e2e tests
