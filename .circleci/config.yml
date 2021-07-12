@@ -39,14 +39,14 @@ jobs:
   #         name: 'Run prettier check on project files'
   #         command: npm run prettier:check
 
-  check-linter:
-    executor: default-executor
-    steps:
-      - attach_workspace:
-          at: .
-      - run:
-          name: 'Run linter'
-          command: npm run lint
+  # check-linter:
+  #   executor: default-executor
+  #   steps:
+  #     - attach_workspace:
+  #         at: .
+  #     - run:
+  #         name: 'Run linter'
+  #         command: npm run lint
 
   run-unit-tests:
     executor: default-executor
