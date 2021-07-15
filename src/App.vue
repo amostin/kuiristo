@@ -41,6 +41,7 @@ export default {
 <style lang="scss">
 body {
   margin: 0;
+  background-color: #f4ffc2c2;
 
   a {
     font-weight: 500;
