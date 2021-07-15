@@ -40,36 +40,41 @@
         alt="Avatar"
       />
 
-      <div class="menu-btn-container" @click="showSideBar">
+      <div class="menu-btn-container" @click="sideBar = !sideBar">
         <div class="menu-btn">
-          <img src="@/assets/img/burger.png" alt="hamburger-menu" class="logo" />
+          <img
+            src="@/assets/img/burger.png"
+            alt="hamburger-menu"
+            class="logo"
+          />
         </div>
       </div>
       <div v-if="!networkOnLine" class="nav-item offline-label">Hors-ligne</div>
     </div>
 
-    <div v-if="!sideBar">
-      <div class="sidebar-items-container">
+    <!-- <div v-if="!sideBar"> -->
+    <div>
+      <div class="sidebar-items-container" :class="{ close: !sideBar, open: sideBar, 'delayed-first': sideBar }">
         <div class="sidebar-items">
           Aliments
         </div>
       </div>
-      <div class="sidebar-items-container">
+      <div class="sidebar-items-container" :class="{ close: !sideBar, open: sideBar, 'delayed-second': sideBar }">
         <div class="sidebar-items">
           Recettes
         </div>
       </div>
-      <div class="sidebar-items-container">
+      <div class="sidebar-items-container" :class="{ close: !sideBar, open: sideBar, 'delayed-third': sideBar }">
         <div class="sidebar-items">
           Liste de courses
         </div>
       </div>
-      <div class="sidebar-items-container">
+      <div class="sidebar-items-container" :class="{ close: !sideBar, open: sideBar, 'delayed-fourth': sideBar }">
         <div class="sidebar-items">
           Inventaire
         </div>
       </div>
-      <div class="sidebar-items-container">
+      <div class="sidebar-items-container" :class="{ close: !sideBar, open: sideBar, 'delayed-last': sideBar }">
         <div class="sidebar-items">
           Se déconnecter
         </div>
@@ -97,10 +102,10 @@ export default {
     async logout() {
       await firebase.auth().signOut();
     },
-    showSideBar() {
-      console.log("on va montrer la sidebar");
-      this.sideBar = !this.sideBar;
-    },
+    // showSideBar() {
+    //   console.log("on va montrer la sidebar");
+    //   this.sideBar = !this.sideBar;
+    // },
   },
 };
 </script>
@@ -305,7 +310,48 @@ export default {
       // justify-content: center;
       box-shadow: 0px 0px 10px black;
       cursor: pointer;
+      // animation: mymove 2s ease-in-out;
+      // transform: scale(100%, 0%);
     }
+    // @keyframes mymove {
+    //   from {left: 600px;}
+    //   to {left: 0px;}
+    // }
   }
+}
+
+.close {
+  transform-origin: right;
+  transform: scale(0%, 0%);
+  // transform: translateX(-300px);
+  transition: 1s transform cubic-bezier(0, 0.12, 0.14, 1);
+}
+
+.open {
+  transform-origin: right;
+  transform: scale(100%, 100%);
+  // transform: translateX(-300px);
+  transition: 1s transform cubic-bezier(0, 0.12, 0.14, 1);
+}
+
+.delayed-first {
+  transition-delay: 100ms;
+  transition-property: transform;
+}
+.delayed-second {
+  transition-delay: 200ms;
+  transition-property: transform;
+}
+.delayed-third {
+  transition-delay: 300ms;
+  transition-property: transform;
+}
+.delayed-fourth {
+  transition-delay: 400ms;
+  transition-property: transform;
+}
+.delayed-last {
+  transition-delay: 500ms;
+  transition-property: transform;
 }
 </style>
