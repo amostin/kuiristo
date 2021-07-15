@@ -8,28 +8,29 @@
     <div class="links">
       <nav class="nav-links">
         <div class="nav-item">
-          <router-link to="/products">Aliments</router-link>
+          <router-link to="/products" class="can-hide">Aliments</router-link>
         </div>
         <div class="nav-item">
-          <router-link to="/recipes">Recettes</router-link>
+          <router-link to="/recipes" class="can-hide">Recettes</router-link>
         </div>
         <div class="nav-item">
-          <router-link to="/shoppingList">Liste de courses</router-link>
+          <router-link to="/shoppingList" class="can-hide"
+            >Liste de courses</router-link
+          >
         </div>
         <div class="nav-item">
-          <router-link to="/inventory">Inventaire</router-link>
+          <router-link to="/inventory" class="can-hide">Inventaire</router-link>
         </div>
         <div v-if="!isUserLoggedIn && networkOnLine" class="nav-item">
-          <router-link to="/login">Se connecter</router-link>
+          <router-link to="/login" class="can-hide">Se connecter</router-link>
         </div>
         <div
           v-if="isUserLoggedIn && networkOnLine"
-          class="nav-item logout-item"
+          class="nav-item"
           @click="logout"
         >
-          <a>Se déconnecter</a>
+          <a class="can-hide">Se déconnecter</a>
         </div>
-        <div v-if="!networkOnLine" class="nav-item offline-label">Hors-ligne</div>
       </nav>
 
       <img
@@ -38,30 +39,74 @@
         :src="user.photoURL"
         alt="Avatar"
       />
+
+      <div class="menu-btn-container" @click="showSideBar">
+        <div class="menu-btn">
+          <img src="@/assets/img/burger.png" alt="hamburger-menu" class="logo" />
+        </div>
+      </div>
+      <div v-if="!networkOnLine" class="nav-item offline-label">Hors-ligne</div>
+    </div>
+
+    <div v-if="!sideBar">
+      <div class="sidebar-items-container">
+        <div class="sidebar-items">
+          Aliments
+        </div>
+      </div>
+      <div class="sidebar-items-container">
+        <div class="sidebar-items">
+          Recettes
+        </div>
+      </div>
+      <div class="sidebar-items-container">
+        <div class="sidebar-items">
+          Liste de courses
+        </div>
+      </div>
+      <div class="sidebar-items-container">
+        <div class="sidebar-items">
+          Inventaire
+        </div>
+      </div>
+      <div class="sidebar-items-container">
+        <div class="sidebar-items">
+          Se déconnecter
+        </div>
+      </div>
     </div>
   </header>
 </template>
 
 <script>
-import firebase from 'firebase/app'
-import { mapGetters, mapState } from 'vuex'
+import firebase from "firebase/app";
+import { mapGetters, mapState } from "vuex";
 
 export default {
+  data() {
+    return {
+      sideBar: false,
+    };
+  },
   computed: {
-    ...mapGetters('authentication', ['isUserLoggedIn']),
-    ...mapState('authentication', ['user']),
-    ...mapState('app', ['networkOnLine'])
+    ...mapGetters("authentication", ["isUserLoggedIn"]),
+    ...mapState("authentication", ["user"]),
+    ...mapState("app", ["networkOnLine"]),
   },
   methods: {
     async logout() {
-      await firebase.auth().signOut()
-    }
-  }
-}
+      await firebase.auth().signOut();
+    },
+    showSideBar() {
+      console.log("on va montrer la sidebar");
+      this.sideBar = !this.sideBar;
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-@import '@/theme/variables.scss';
+@import "@/theme/variables.scss";
 
 .navbar {
   position: absolute;
@@ -71,6 +116,7 @@ export default {
   right: 0;
   height: $navbar-height;
   background-color: $navbar-color;
+  // commenter ces 4 lignes pour étendre entièrement la navbar
   box-sizing: border-box;
   border-bottom: 1px solid #eaecef;
   padding: 0.7rem 1.5rem;
@@ -89,7 +135,7 @@ export default {
     display: none;
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 725px) {
     padding: 0.7rem 0.7rem;
 
     .can-hide {
@@ -127,6 +173,30 @@ export default {
     top: 0.7rem;
     display: flex;
 
+    .menu-btn-container {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .menu-btn {
+      cursor: pointer;
+      // padding: 0px 10px;
+      // border: 1px solid;
+      display: inline-block;
+      // border-radius: 3px;
+      // margin-left: 10px;
+      // border-color: #2c3e50;
+
+      @media screen and (min-width: 725px) {
+        display: none;
+      }
+
+      &:hover {
+        color: $vue-color;
+        border-color: $vue-color;
+      }
+    }
+
     .nav-links {
       display: flex;
       align-items: center;
@@ -162,6 +232,12 @@ export default {
           @include activatedLink;
         }
 
+        @media (max-width: 725px) {
+          .can-hide {
+            display: none;
+          }
+        }
+
         @media (hover) {
           :hover {
             @include activatedLink;
@@ -191,6 +267,45 @@ export default {
     border-radius: 5px;
     color: white;
     margin-left: 1.5rem;
+  }
+}
+
+.sidebar-items-container {
+  display: flex;
+  flex-direction: row-reverse;
+  // align-items: center;
+
+  .sidebar-items {
+    display: none;
+    // background-color: $navbar-color;
+    // padding: 0% 10% 0% 10%;
+    // border: 1px solid black;
+    // border-radius: 30px;
+    // margin-top: 1%;
+    // // height: 2%;
+    // width: 20%;
+    // text-align: center;
+    // // align-items: center;
+    // // justify-content: center;
+    // box-shadow: 0px 0px 10px black;
+  }
+
+  @media screen and (max-width: 725px) {
+    .sidebar-items {
+      display: block;
+      background-color: $navbar-color;
+      padding: 0% 10% 0% 10%;
+      border: 1px solid black;
+      border-radius: 30px;
+      margin-top: 1%;
+      // height: 2%;
+      width: 120px;
+      text-align: center;
+      // align-items: center;
+      // justify-content: center;
+      box-shadow: 0px 0px 10px black;
+      cursor: pointer;
+    }
   }
 }
 </style>
