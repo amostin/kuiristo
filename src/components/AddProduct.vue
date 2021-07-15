@@ -1,7 +1,7 @@
 <template>
   <div class="product-action-bar">
     <input
-      placeholder="product name..."
+      placeholder="Nom de l'aliment..."
       class="product-name-input"
       type="text"
       :value="productNameToCreate"
@@ -13,7 +13,7 @@
       class="create-product-btn"
       @click="triggerAddProductAction"
     >
-      add product
+      Ajouter un aliment
     </div>
   </div>
 </template>

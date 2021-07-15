@@ -4,14 +4,15 @@
       class="product-link"
       :to="{ name: 'product', params: { id: data.id } }"
     >
-      #{{ index }} {{ data.name }}
+    {{ data.name }}
+      <!-- #{{ index }} {{ data.name }} -->
     </router-link>
     <div
       v-if="!disableActions"
       class="delete-btn"
       @click="$emit('deleteProduct', data.id)"
     >
-      {{ isProductDeletionPending ? 'delete in progress...' : 'delete' }}
+      {{ isProductDeletionPending ? 'suppression en cours...' : 'supprimer' }}
     </div>
   </div>
 </template>

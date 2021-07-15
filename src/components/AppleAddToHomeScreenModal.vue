@@ -4,19 +4,18 @@
       <div class="close" @click="$emit('close')"></div>
       <div class="main-content">
         <img class="app-logo" src="@/assets/logo.png" />
-        <h3 class="title">Install Kuiristo</h3>
+        <h3 class="title">Installez Kuiristo</h3>
         <p class="description">
-          Install this application to your home screen for quickly and easy
-          access when you're on the go.
+          Installez cette application sur votre écran d'accueil pour y avoir accès facilement.
         </p>
       </div>
 
       <div class="footer">
-        Just tap
+        Clickez juste
         <img
           class="apple-navigation-action-img"
           src="@/assets/img/apple-navigation-action.png"
-        />then 'Add to Home Screen'
+        />puis 'Ajouter à l'écran d'accueil'
       </div>
     </div>
   </div>

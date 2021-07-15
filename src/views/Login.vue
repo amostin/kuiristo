@@ -1,13 +1,13 @@
 <template>
   <div class="page-wrapper">
-    <h1 class="login-page-title">Login page</h1>
+    <h1 class="login-page-title">Page de connexion</h1>
 
     <!-- Loader -->
-    <div v-show="user === undefined" data-test="loader">Authenticating...</div>
+    <div v-show="user === undefined" data-test="loader">Authentification...</div>
 
     <!-- Offline instruction -->
     <div v-show="!networkOnLine" data-test="offline-instruction">
-      Please check your connection, login feature is not available offline.
+      Veuillez vérifier votre connexion, la connexion n'est pas possible hors-ligne.
     </div>
 
     <p v-if="loginError">{{ loginError }}</p>
@@ -18,7 +18,7 @@
       class="login-btn"
       @click="login"
     >
-      Login with google
+      Se connecter avec google
     </div>
   </div>
 </template>

@@ -8,19 +8,28 @@
     <div class="links">
       <nav class="nav-links">
         <div class="nav-item">
-          <router-link to="/products">Products</router-link>
+          <router-link to="/products">Aliments</router-link>
+        </div>
+        <div class="nav-item">
+          <router-link to="/recipes">Recettes</router-link>
+        </div>
+        <div class="nav-item">
+          <router-link to="/shoppingList">Liste de courses</router-link>
+        </div>
+        <div class="nav-item">
+          <router-link to="/inventory">Inventaire</router-link>
         </div>
         <div v-if="!isUserLoggedIn && networkOnLine" class="nav-item">
-          <router-link to="/login">Login</router-link>
+          <router-link to="/login">Se connecter</router-link>
         </div>
         <div
           v-if="isUserLoggedIn && networkOnLine"
           class="nav-item logout-item"
           @click="logout"
         >
-          <a>Logout</a>
+          <a>Se déconnecter</a>
         </div>
-        <div v-if="!networkOnLine" class="nav-item offline-label">Offline</div>
+        <div v-if="!networkOnLine" class="nav-item offline-label">Hors-ligne</div>
       </nav>
 
       <img
