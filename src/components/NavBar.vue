@@ -54,27 +54,62 @@
 
     <!-- <div v-if="!sideBar"> -->
     <div>
-      <div class="sidebar-items-container" :class="{ close: !sideBar, open: sideBar, 'delayed-first': sideBar }">
+      <div
+        class="sidebar-items-container"
+        :class="{
+          close: !sideBar,
+          'delayed-last': !sideBar,
+          open: sideBar,
+          'delayed-first': sideBar,
+        }"
+      >
         <div class="sidebar-items">
           Aliments
         </div>
       </div>
-      <div class="sidebar-items-container" :class="{ close: !sideBar, open: sideBar, 'delayed-second': sideBar }">
+      <div
+        class="sidebar-items-container"
+        :class="{
+          close: !sideBar,
+          'delayed-fourth': !sideBar,
+          open: sideBar,
+          'delayed-second': sideBar,
+        }"
+      >
         <div class="sidebar-items">
           Recettes
         </div>
       </div>
-      <div class="sidebar-items-container" :class="{ close: !sideBar, open: sideBar, 'delayed-third': sideBar }">
+      <div
+        class="sidebar-items-container delayed-third"
+        :class="{ close: !sideBar, open: sideBar }"
+      >
         <div class="sidebar-items">
           Liste de courses
         </div>
       </div>
-      <div class="sidebar-items-container" :class="{ close: !sideBar, open: sideBar, 'delayed-fourth': sideBar }">
+      <div
+        class="sidebar-items-container"
+        :class="{
+          close: !sideBar,
+          'delayed-second': !sideBar,
+          open: sideBar,
+          'delayed-fourth': sideBar,
+        }"
+      >
         <div class="sidebar-items">
           Inventaire
         </div>
       </div>
-      <div class="sidebar-items-container" :class="{ close: !sideBar, open: sideBar, 'delayed-last': sideBar }">
+      <div
+        class="sidebar-items-container"
+        :class="{
+          close: !sideBar,
+          'delayed-first': !sideBar,
+          open: sideBar,
+          'delayed-last': sideBar,
+        }"
+      >
         <div class="sidebar-items">
           Se déconnecter
         </div>
