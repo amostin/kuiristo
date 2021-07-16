@@ -4,7 +4,7 @@
       <img alt="logo-kuiristo" class="logo" src="@/assets/img/kuiristo.svg" />
       <span class="site-name title-desktop">Kuiristo</span>
       <span class="site-name title-mobile">Kuiristo</span>
-          <input type="text" ref="focusItem" @blur="blurInput" readonly/>
+      <input type="text" ref="focusItem" @blur="blurInput" readonly />
     </router-link>
     <div class="links">
       <nav class="nav-links">
@@ -63,9 +63,6 @@
       <div v-if="!networkOnLine" class="nav-item offline-label">Hors-ligne</div>
     </div>
 
-    <!-- <div v-if="!sideBar"> -->
-    <!-- <div style="display: none;"> -->
-    <!-- <div> -->
     <div
       class="sidebar-items-container"
       :class="{
@@ -75,9 +72,7 @@
         'delayed-first': sideBar,
       }"
     >
-      <div class="sidebar-items">
-        <router-link to="/products">Aliments</router-link>
-      </div>
+      <router-link to="/products" class="sidebar-items">Aliments</router-link>
     </div>
     <div
       class="sidebar-items-container"
@@ -88,17 +83,15 @@
         'delayed-second': sideBar,
       }"
     >
-      <div class="sidebar-items">
-        Recettes
-      </div>
+      <router-link to="/recipes" class="sidebar-items">Recettes</router-link>
     </div>
     <div
       class="sidebar-items-container delayed-third"
       :class="{ close: !sideBar, open: sideBar }"
     >
-      <div class="sidebar-items">
-        Liste de courses
-      </div>
+      <router-link to="/shoppingList" class="sidebar-items"
+        >Liste de courses</router-link
+      >
     </div>
     <div
       class="sidebar-items-container"
@@ -109,11 +102,12 @@
         'delayed-fourth': sideBar,
       }"
     >
-      <div class="sidebar-items">
-        Inventaire
-      </div>
+      <router-link to="/inventory" class="sidebar-items"
+        >Inventaire</router-link
+      >
     </div>
     <div
+      v-if="!isUserLoggedIn && networkOnLine"
       class="sidebar-items-container"
       :class="{
         close: !sideBar,
@@ -122,11 +116,21 @@
         'delayed-last': sideBar,
       }"
     >
-      <div class="sidebar-items">
-        Se déconnecter
-      </div>
+      <router-link to="/login" class="sidebar-items">Se connecter</router-link>
     </div>
-    <!-- </div> -->
+    <div
+      v-if="isUserLoggedIn && networkOnLine"
+      @click="logout"
+      class="sidebar-items-container"
+      :class="{
+        close: !sideBar,
+        'delayed-first': !sideBar,
+        open: sideBar,
+        'delayed-last': sideBar,
+      }"
+    >
+      <a class="sidebar-items">Se déconnecter</a>
+    </div>
   </header>
 </template>
 
@@ -138,7 +142,7 @@ export default {
   data() {
     return {
       sideBar: false,
-      isFocused: false
+      isFocused: false,
     };
   },
   computed: {
@@ -171,7 +175,7 @@ export default {
     blurInput() {
       this.sideBar = !this.sideBar;
       this.isFocused = false;
-    }
+    },
     // showSideBar() {
     //   console.log("on va montrer la sidebar");
     //   this.sideBar = !this.sideBar;
@@ -387,6 +391,7 @@ export default {
       // transform: scale(100%, 0%);
       // position: absolute;
       // right: 0;
+      color: black;
     }
     // @keyframes mymove {
     //   from {left: 600px;}
@@ -439,11 +444,19 @@ input {
   outline: none;
   height: 0%;
   width: 0%;
-  border:none;
-  background-image:none;
-  background-color:transparent;
+  border: none;
+  background-image: none;
+  background-color: transparent;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+}
+
+.routerLink {
+  display: block;
+  background-color: $navbar-color;
+  width: 120px;
+  text-align: center;
+  cursor: pointer;
 }
 </style>
