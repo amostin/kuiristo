@@ -4,7 +4,7 @@
       <img alt="logo-kuiristo" class="logo" src="@/assets/img/kuiristo.svg" />
       <span class="site-name title-desktop">Kuiristo</span>
       <span class="site-name title-mobile">Kuiristo</span>
-          <input type="text" ref="focusItem" @blur="blurInput" />
+          <input type="text" ref="focusItem" @blur="blurInput" readonly/>
     </router-link>
     <div class="links">
       <nav class="nav-links">
