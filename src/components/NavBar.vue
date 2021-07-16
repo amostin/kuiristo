@@ -4,6 +4,7 @@
       <img alt="logo-kuiristo" class="logo" src="@/assets/img/kuiristo.svg" />
       <span class="site-name title-desktop">Kuiristo</span>
       <span class="site-name title-mobile">Kuiristo</span>
+          <input type="text" ref="focusItem" @blur="blurInput" />
     </router-link>
     <div class="links">
       <nav class="nav-links">
@@ -40,7 +41,17 @@
         alt="Avatar"
       />
 
-      <div class="menu-btn-container" @click="sideBar = !sideBar">
+      <!-- <div class="menu-btn-container" @click="sideBar = !sideBar"> -->
+      <div class="menu-btn-container" @click="focusInput" v-if="!isFocused">
+        <div class="menu-btn">
+          <img
+            src="@/assets/img/burger.png"
+            alt="hamburger-menu"
+            class="logo"
+          />
+        </div>
+      </div>
+      <div class="menu-btn-container" v-if="isFocused">
         <div class="menu-btn">
           <img
             src="@/assets/img/burger.png"
@@ -53,68 +64,69 @@
     </div>
 
     <!-- <div v-if="!sideBar"> -->
-    <div>
-      <div
-        class="sidebar-items-container"
-        :class="{
-          close: !sideBar,
-          'delayed-last': !sideBar,
-          open: sideBar,
-          'delayed-first': sideBar,
-        }"
-      >
-        <div class="sidebar-items">
-          Aliments
-        </div>
-      </div>
-      <div
-        class="sidebar-items-container"
-        :class="{
-          close: !sideBar,
-          'delayed-fourth': !sideBar,
-          open: sideBar,
-          'delayed-second': sideBar,
-        }"
-      >
-        <div class="sidebar-items">
-          Recettes
-        </div>
-      </div>
-      <div
-        class="sidebar-items-container delayed-third"
-        :class="{ close: !sideBar, open: sideBar }"
-      >
-        <div class="sidebar-items">
-          Liste de courses
-        </div>
-      </div>
-      <div
-        class="sidebar-items-container"
-        :class="{
-          close: !sideBar,
-          'delayed-second': !sideBar,
-          open: sideBar,
-          'delayed-fourth': sideBar,
-        }"
-      >
-        <div class="sidebar-items">
-          Inventaire
-        </div>
-      </div>
-      <div
-        class="sidebar-items-container"
-        :class="{
-          close: !sideBar,
-          'delayed-first': !sideBar,
-          open: sideBar,
-          'delayed-last': sideBar,
-        }"
-      >
-        <div class="sidebar-items">
-          Se déconnecter
-        </div>
+    <!-- <div style="display: none;"> -->
+    <!-- <div> -->
+    <div
+      class="sidebar-items-container"
+      :class="{
+        close: !sideBar,
+        'delayed-last': !sideBar,
+        open: sideBar,
+        'delayed-first': sideBar,
+      }"
+    >
+      <div class="sidebar-items">
+        <router-link to="/products">Aliments</router-link>
       </div>
     </div>
+    <div
+      class="sidebar-items-container"
+      :class="{
+        close: !sideBar,
+        'delayed-fourth': !sideBar,
+        open: sideBar,
+        'delayed-second': sideBar,
+      }"
+    >
+      <div class="sidebar-items">
+        Recettes
+      </div>
+    </div>
+    <div
+      class="sidebar-items-container delayed-third"
+      :class="{ close: !sideBar, open: sideBar }"
+    >
+      <div class="sidebar-items">
+        Liste de courses
+      </div>
+    </div>
+    <div
+      class="sidebar-items-container"
+      :class="{
+        close: !sideBar,
+        'delayed-second': !sideBar,
+        open: sideBar,
+        'delayed-fourth': sideBar,
+      }"
+    >
+      <div class="sidebar-items">
+        Inventaire
+      </div>
+    </div>
+    <div
+      class="sidebar-items-container"
+      :class="{
+        close: !sideBar,
+        'delayed-first': !sideBar,
+        open: sideBar,
+        'delayed-last': sideBar,
+      }"
+    >
+      <div class="sidebar-items">
+        Se déconnecter
+      </div>
+    </div>
+    <!-- </div> -->
   </header>
 </template>
 
@@ -126,6 +138,7 @@ export default {
   data() {
     return {
       sideBar: false,
+      isFocused: false
     };
   },
   computed: {
@@ -137,6 +150,28 @@ export default {
     async logout() {
       await firebase.auth().signOut();
     },
+    focusInput() {
+      // console.log(this.$refs.focusItem);
+      // console.log(this.$refs.focusItem.isfocus());
+      // if (!this.isFocused) {
+      //   this.$refs.focusItem.focus();
+      //   this.isFocused = true;
+      //   this.sideBar = !this.sideBar;
+      // }
+      // else {
+      //   this.isFocused = false;
+      //   this.sideBar = !this.sideBar;
+      // }
+      this.$refs.focusItem.focus();
+      this.sideBar = !this.sideBar;
+      // console.log(this.isFocused);
+      this.isFocused = true;
+      // else this.isFocused = false;
+    },
+    blurInput() {
+      this.sideBar = !this.sideBar;
+      this.isFocused = false;
+    }
     // showSideBar() {
     //   console.log("on va montrer la sidebar");
     //   this.sideBar = !this.sideBar;
@@ -152,7 +187,7 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 20;
+  // z-index: 20;
   right: 0;
   height: $navbar-height;
   background-color: $navbar-color;
@@ -313,7 +348,10 @@ export default {
 .sidebar-items-container {
   display: flex;
   flex-direction: row-reverse;
+  // width:100%;
   // align-items: center;
+  // z-index: -20;
+  // position: relative;
 
   .sidebar-items {
     display: none;
@@ -347,6 +385,8 @@ export default {
       cursor: pointer;
       // animation: mymove 2s ease-in-out;
       // transform: scale(100%, 0%);
+      // position: absolute;
+      // right: 0;
     }
     // @keyframes mymove {
     //   from {left: 600px;}
@@ -367,6 +407,10 @@ export default {
   transform: scale(100%, 100%);
   // transform: translateX(-300px);
   transition: 1s transform cubic-bezier(0, 0.12, 0.14, 1);
+  // &:hover {
+  //   transform: scale(110%, 110%);
+  //   transition: 100ms transform cubic-bezier(0, 0.12, 0.14, 1);
+  // }
 }
 
 .delayed-first {
@@ -388,5 +432,18 @@ export default {
 .delayed-last {
   transition-delay: 500ms;
   transition-property: transform;
+}
+
+input {
+  // visibility: hidden;
+  outline: none;
+  height: 0%;
+  width: 0%;
+  border:none;
+  background-image:none;
+  background-color:transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 </style>
