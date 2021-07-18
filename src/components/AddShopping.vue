@@ -1,8 +1,8 @@
 <template>
-  <div class="product-action-bar">
+  <div class="shopping-action-bar">
     <input
       placeholder="Nom de l'aliment..."
-      class="product-name-input"
+      class="shopping-name-input"
       type="text"
       :value="productNameToCreate"
       @input="setProductNameToCreate($event.target.value)"
@@ -10,7 +10,7 @@
     />
     <div
       :class="{ disabled: productCreationPending }"
-      class="create-product-btn"
+      class="create-shopping-btn"
       @click="triggerAddProductAction"
     >
       Ajouter l'aliment
@@ -36,12 +36,12 @@ export default {
 <style lang="scss" scoped>
 @import '@/theme/variables.scss';
 
-.product-action-bar {
+.shopping-action-bar {
   display: flex;
   align-items: center;
   justify-content: center;
 
-  .product-name-input {
+  .shopping-name-input {
     padding-left: 5px;
     height: 30px;
     width: 150px;
@@ -52,7 +52,7 @@ export default {
     border-radius: 3px;
   }
 
-  .create-product-btn {
+  .create-shopping-btn {
     cursor: pointer;
     padding: 5px 10px;
     border: 1px solid;

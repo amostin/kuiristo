@@ -15,7 +15,7 @@
           <router-link to="/recipes" class="can-hide">Recettes</router-link>
         </div>
         <div class="nav-item">
-          <router-link to="/shoppingList" class="can-hide"
+          <router-link to="/shopping" class="can-hide"
             >Liste de courses</router-link
           >
         </div>
@@ -89,7 +89,7 @@
       class="sidebar-items-container delayed-third"
       :class="{ close: !sideBar, open: sideBar }"
     >
-      <router-link to="/shoppingList" class="sidebar-items"
+      <router-link to="/shopping" class="sidebar-items"
         >Liste de courses</router-link
       >
     </div>
@@ -166,15 +166,22 @@ export default {
       //   this.isFocused = false;
       //   this.sideBar = !this.sideBar;
       // }
+      // console.log('focusInput before => on a le focus ? ' + this.isFocused + ', sidebar ouverte ?' + this.sideBar);
       this.$refs.focusItem.focus();
       this.sideBar = !this.sideBar;
-      // console.log(this.isFocused);
-      this.isFocused = true;
+      this.isFocused = !this.isFocused;
+      // console.log('focusInput after => on a le focus ? ' + this.isFocused + ', sidebar ouverte ?' + this.sideBar);
       // else this.isFocused = false;
     },
     blurInput() {
-      this.sideBar = !this.sideBar;
-      this.isFocused = false;
+      // console.log('blurInput before: on a le focus ? ' + this.isFocused + ', sidebar ouverte ?' + this.sideBar);
+      if (this.sideBar) {
+        // console.log('sidebar est true avant ? ' + this.sideBar)
+        this.sideBar = !this.sideBar;
+        this.isFocused = !this.isFocused;
+        // console.log('!sidebar ? ' + this.sideBar)
+      }
+      // console.log('blurInput after => on a le focus ? ' + this.isFocused + ', sidebar ouverte ?' + this.sideBar);
     },
     // showSideBar() {
     //   console.log("on va montrer la sidebar");
@@ -404,14 +411,14 @@ export default {
   transform-origin: right;
   transform: scale(0%, 0%);
   // transform: translateX(-300px);
-  transition: 1s transform cubic-bezier(0, 0.12, 0.14, 1);
+  transition: 0.5s transform cubic-bezier(0, 0.12, 0.14, 1);
 }
 
 .open {
   transform-origin: right;
   transform: scale(100%, 100%);
   // transform: translateX(-300px);
-  transition: 1s transform cubic-bezier(0, 0.12, 0.14, 1);
+  transition: 0.5s transform cubic-bezier(0, 0.12, 0.14, 1);
   // &:hover {
   //   transform: scale(110%, 110%);
   //   transition: 100ms transform cubic-bezier(0, 0.12, 0.14, 1);

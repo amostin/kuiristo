@@ -65,6 +65,12 @@ const router = new Router({
         import(/* webpackChunkName: "client-chunk-products" */ '@/views/Recipes.vue')
     },
     {
+      path: '/addrecipe',
+      name: 'addrecipe',
+      component: () =>
+        import(/* webpackChunkName: "client-chunk-products" */ '@/views/AddRecipe.vue')
+    },
+    {
       path: '/recipes/:id',
       name: 'recipe',
       props: true,
@@ -72,10 +78,10 @@ const router = new Router({
         import(/* webpackChunkName: "client-chunk-product-details" */ '@/views/Recipe.vue')
     },
     {
-      path: '/shoppingList',
-      name: 'shoppingList',
+      path: '/shopping',
+      name: 'shopping',
       component: () =>
-        import(/* webpackChunkName: "client-chunk-products" */ '@/views/ShoppingList.vue')
+        import(/* webpackChunkName: "client-chunk-products" */ '@/views/Shopping.vue')
     },
     {
       path: '/inventory',
