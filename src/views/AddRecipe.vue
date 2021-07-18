@@ -5,6 +5,11 @@
         Liste des recettes
       </div>
     </div>
+    <div class="recipe-photo-container">
+      <div class="recipe-photo btn-photo">
+        <img src="../assets/img/camera.png" alt="">
+      </div>
+    </div>
     <div class="input-container">
       <input placeholder="Nom de la recette" class="recipe-input" type="text" />
       <div class="mini-input-container">
@@ -292,6 +297,39 @@ export default {
       text-align: center;
     }
   }
+  .recipe-photo-container {
+    // max-width: 100%;
+    // height: auto;
+    // background-image: url("../assets/img/food-rainbow.jpg");
+    min-height: 5em;
+    width: 100%;
+    max-width: 700px;
+    // background-attachment: fixed;
+    // background-position: center;
+    // background-repeat: no-repeat;
+    // background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .recipe-photo {
+      background-color: $navbar-color;
+      // border-radius: 50%;
+      font-weight: bold;
+      // height: 100%;
+      width: 8vw;
+      min-width: 50px;
+      // max-width: 80px;
+      padding: 2vw;
+      text-align: center;
+
+      img {
+        width: 70%;
+      }
+    }
+  }
   .input-container {
     display: flex;
 
@@ -392,6 +430,18 @@ export default {
   .btn {
     border-radius: 30px;
     line-height: 1.5rem;
+    font-weight: 600;
+    border: 1px solid #0c8001;
+    background-image: linear-gradient(-180deg, #97ff89 0%, #2cc01f 100%);
+    box-shadow: 0 1rem 1.25rem 0 rgba(36, 195, 22, 0.5),
+      0 -0.25rem 1.5rem rgb(20, 155, 15) inset,
+      0 0.75rem 0.5rem rgba(255, 255, 255, 0.4) inset,
+      0 0.25rem 0.5rem 0 rgb(75, 207, 70) inset;
+  }
+
+    .btn-photo {
+    border-radius: 50%;
+    // line-height: 1.5rem;
     font-weight: 600;
     border: 1px solid #0c8001;
     background-image: linear-gradient(-180deg, #97ff89 0%, #2cc01f 100%);
