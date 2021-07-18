@@ -127,7 +127,7 @@
         <input placeholder="Qt." class="person-number-input" type="text" />
       </div>
     </div>
-    <div class="add-food btn" @click="showDiv">
+    <div class="add-ingredient btn" @click="showDiv">
       Ajouter un ingrédient
     </div>
     <hr />
@@ -206,7 +206,7 @@
     <div class="input-container" v-if="addTextarea > 23">
       <textarea placeholder="Étape 25" class="recipe-textarea" type="text" />
     </div>
-    <div class="add-food btn" @click="showTextarea">
+    <div class="add-ingredient btn" @click="showTextarea">
       Ajouter une étape
     </div>
     <hr />
@@ -346,7 +346,7 @@ export default {
     max-width: 700px;
   }
 
-  .add-food {
+  .add-ingredient {
     cursor: pointer;
     text-align: center;
     width: 70%;
