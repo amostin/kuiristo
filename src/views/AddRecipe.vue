@@ -15,18 +15,199 @@
     <div class="input-container">
       <input placeholder="Ingrédient 1" class="recipe-input" type="text" />
       <div class="mini-input-container">
-        <input placeholder="Qt." class="person-number-input" type="number" />
+        <input placeholder="Qt." class="person-number-input" type="text" />
       </div>
     </div>
-    <div class="add-food btn">
+    <!-- <div ref="addedInputs"></div> -->
+    <div class="input-container" v-if="addDiv > 0">
+      <input placeholder="Ingrédient 2" class="recipe-input" type="text" />
+      <div class="mini-input-container">
+        <input placeholder="Qt." class="person-number-input" type="text" />
+      </div>
+    </div>
+    <div class="input-container" v-if="addDiv > 1">
+      <input placeholder="Ingrédient 3" class="recipe-input" type="text" />
+      <div class="mini-input-container">
+        <input placeholder="Qt." class="person-number-input" type="text" />
+      </div>
+    </div>
+    <div class="input-container" v-if="addDiv > 2">
+      <input placeholder="Ingrédient 4" class="recipe-input" type="text" />
+      <div class="mini-input-container">
+        <input placeholder="Qt." class="person-number-input" type="text" />
+      </div>
+    </div>
+    <div class="input-container" v-if="addDiv > 3">
+      <input placeholder="Ingrédient 5" class="recipe-input" type="text" />
+      <div class="mini-input-container">
+        <input placeholder="Qt." class="person-number-input" type="text" />
+      </div>
+    </div>
+    <div class="input-container" v-if="addDiv > 4">
+      <input placeholder="Ingrédient 6" class="recipe-input" type="text" />
+      <div class="mini-input-container">
+        <input placeholder="Qt." class="person-number-input" type="text" />
+      </div>
+    </div>
+    <div class="input-container" v-if="addDiv > 5">
+      <input placeholder="Ingrédient 7" class="recipe-input" type="text" />
+      <div class="mini-input-container">
+        <input placeholder="Qt." class="person-number-input" type="text" />
+      </div>
+    </div>
+    <div class="input-container" v-if="addDiv > 6">
+      <input placeholder="Ingrédient 8" class="recipe-input" type="text" />
+      <div class="mini-input-container">
+        <input placeholder="Qt." class="person-number-input" type="text" />
+      </div>
+    </div>
+    <div class="input-container" v-if="addDiv > 7">
+      <input placeholder="Ingrédient 9" class="recipe-input" type="text" />
+      <div class="mini-input-container">
+        <input placeholder="Qt." class="person-number-input" type="text" />
+      </div>
+    </div>
+    <div class="input-container" v-if="addDiv > 8">
+      <input placeholder="Ingrédient 10" class="recipe-input" type="text" />
+      <div class="mini-input-container">
+        <input placeholder="Qt." class="person-number-input" type="text" />
+      </div>
+    </div>
+    <div class="input-container" v-if="addDiv > 9">
+      <input placeholder="Ingrédient 11" class="recipe-input" type="text" />
+      <div class="mini-input-container">
+        <input placeholder="Qt." class="person-number-input" type="text" />
+      </div>
+    </div>
+    <div class="input-container" v-if="addDiv > 10">
+      <input placeholder="Ingrédient 12" class="recipe-input" type="text" />
+      <div class="mini-input-container">
+        <input placeholder="Qt." class="person-number-input" type="text" />
+      </div>
+    </div>
+    <div class="input-container" v-if="addDiv > 11">
+      <input placeholder="Ingrédient 13" class="recipe-input" type="text" />
+      <div class="mini-input-container">
+        <input placeholder="Qt." class="person-number-input" type="text" />
+      </div>
+    </div>
+    <div class="input-container" v-if="addDiv > 12">
+      <input placeholder="Ingrédient 14" class="recipe-input" type="text" />
+      <div class="mini-input-container">
+        <input placeholder="Qt." class="person-number-input" type="text" />
+      </div>
+    </div>
+    <div class="input-container" v-if="addDiv > 13">
+      <input placeholder="Ingrédient 15" class="recipe-input" type="text" />
+      <div class="mini-input-container">
+        <input placeholder="Qt." class="person-number-input" type="text" />
+      </div>
+    </div>
+    <div class="input-container" v-if="addDiv > 14">
+      <input placeholder="Ingrédient 16" class="recipe-input" type="text" />
+      <div class="mini-input-container">
+        <input placeholder="Qt." class="person-number-input" type="text" />
+      </div>
+    </div>
+    <div class="input-container" v-if="addDiv > 15">
+      <input placeholder="Ingrédient 17" class="recipe-input" type="text" />
+      <div class="mini-input-container">
+        <input placeholder="Qt." class="person-number-input" type="text" />
+      </div>
+    </div>
+    <div class="input-container" v-if="addDiv > 16">
+      <input placeholder="Ingrédient 18" class="recipe-input" type="text" />
+      <div class="mini-input-container">
+        <input placeholder="Qt." class="person-number-input" type="text" />
+      </div>
+    </div>
+    <div class="input-container" v-if="addDiv > 17">
+      <input placeholder="Ingrédient 19" class="recipe-input" type="text" />
+      <div class="mini-input-container">
+        <input placeholder="Qt." class="person-number-input" type="text" />
+      </div>
+    </div>
+    <div class="add-food btn" @click="showDiv">
       Ajouter un ingrédient
     </div>
     <hr />
     <div class="input-container">
       <textarea placeholder="Étape 1" class="recipe-textarea" type="text" />
     </div>
-    <div class="add-food btn">
-      Ajouter un ingrédient
+    <div class="input-container" v-if="addTextarea > 0">
+      <textarea placeholder="Étape 2" class="recipe-textarea" type="text" />
+    </div>
+    <div class="input-container" v-if="addTextarea > 1">
+      <textarea placeholder="Étape 3" class="recipe-textarea" type="text" />
+    </div>
+    <div class="input-container" v-if="addTextarea > 2">
+      <textarea placeholder="Étape 4" class="recipe-textarea" type="text" />
+    </div>
+    <div class="input-container" v-if="addTextarea > 3">
+      <textarea placeholder="Étape 5" class="recipe-textarea" type="text" />
+    </div>
+    <div class="input-container" v-if="addTextarea > 4">
+      <textarea placeholder="Étape 6" class="recipe-textarea" type="text" />
+    </div>
+    <div class="input-container" v-if="addTextarea > 5">
+      <textarea placeholder="Étape 7" class="recipe-textarea" type="text" />
+    </div>
+    <div class="input-container" v-if="addTextarea > 6">
+      <textarea placeholder="Étape 8" class="recipe-textarea" type="text" />
+    </div>
+    <div class="input-container" v-if="addTextarea > 7">
+      <textarea placeholder="Étape 9" class="recipe-textarea" type="text" />
+    </div>
+    <div class="input-container" v-if="addTextarea > 8">
+      <textarea placeholder="Étape 10" class="recipe-textarea" type="text" />
+    </div>
+    <div class="input-container" v-if="addTextarea > 9">
+      <textarea placeholder="Étape 11" class="recipe-textarea" type="text" />
+    </div>
+    <div class="input-container" v-if="addTextarea > 10">
+      <textarea placeholder="Étape 12" class="recipe-textarea" type="text" />
+    </div>
+    <div class="input-container" v-if="addTextarea > 11">
+      <textarea placeholder="Étape 13" class="recipe-textarea" type="text" />
+    </div>
+    <div class="input-container" v-if="addTextarea > 12">
+      <textarea placeholder="Étape 14" class="recipe-textarea" type="text" />
+    </div>
+    <div class="input-container" v-if="addTextarea > 13">
+      <textarea placeholder="Étape 15" class="recipe-textarea" type="text" />
+    </div>
+    <div class="input-container" v-if="addTextarea > 14">
+      <textarea placeholder="Étape 16" class="recipe-textarea" type="text" />
+    </div>
+    <div class="input-container" v-if="addTextarea > 15">
+      <textarea placeholder="Étape 17" class="recipe-textarea" type="text" />
+    </div>
+    <div class="input-container" v-if="addTextarea > 16">
+      <textarea placeholder="Étape 18" class="recipe-textarea" type="text" />
+    </div>
+    <div class="input-container" v-if="addTextarea > 17">
+      <textarea placeholder="Étape 19" class="recipe-textarea" type="text" />
+    </div>
+    <div class="input-container" v-if="addTextarea > 18">
+      <textarea placeholder="Étape 20" class="recipe-textarea" type="text" />
+    </div>
+    <div class="input-container" v-if="addTextarea > 19">
+      <textarea placeholder="Étape 21" class="recipe-textarea" type="text" />
+    </div>
+    <div class="input-container" v-if="addTextarea > 20">
+      <textarea placeholder="Étape 22" class="recipe-textarea" type="text" />
+    </div>
+    <div class="input-container" v-if="addTextarea > 21">
+      <textarea placeholder="Étape 23" class="recipe-textarea" type="text" />
+    </div>
+    <div class="input-container" v-if="addTextarea > 22">
+      <textarea placeholder="Étape 24" class="recipe-textarea" type="text" />
+    </div>
+    <div class="input-container" v-if="addTextarea > 23">
+      <textarea placeholder="Étape 25" class="recipe-textarea" type="text" />
+    </div>
+    <div class="add-food btn" @click="showTextarea">
+      Ajouter une étape
     </div>
     <hr />
 
@@ -46,6 +227,12 @@
 import { mapMutations, mapState, mapActions } from "vuex";
 
 export default {
+  data() {
+    return {
+      addDiv: 0,
+      addTextarea: 0,
+    };
+  },
   computed: mapState("products", [
     "productNameToCreate",
     "productCreationPending",
@@ -53,6 +240,18 @@ export default {
   methods: {
     ...mapMutations("products", ["setProductNameToCreate"]),
     ...mapActions("products", ["triggerAddProductAction"]),
+    showDiv() {
+      this.addDiv += 1;
+      // console.log(this.addDiv);
+    },
+    showTextarea() {
+      this.addTextarea += 1;
+      // this.$refs.addedInputs.innerHTML += `
+      //   <div class="input-container">
+      //     <textarea placeholder="Étape 1" class="recipe-textarea" type="text" ></textarea>
+      //   </div>
+      // `;
+    },
   },
 };
 </script>
