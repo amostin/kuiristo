@@ -2,12 +2,12 @@
   <div class="recipe-container">
     <div class="recipe-title-container">
       <div class="recipe-title btn">
-        Liste des recettes
+        Ajout d'une recette
       </div>
     </div>
     <div class="recipe-photo-container">
       <div class="recipe-photo btn-photo">
-        <img src="../assets/img/camera.png" alt="">
+        <img src="../assets/img/camera.png" alt="" />
       </div>
     </div>
     <div class="input-container">
@@ -273,7 +273,7 @@ export default {
   .recipe-title-container {
     // max-width: 100%;
     // height: auto;
-    background-image: url("../assets/img/food-rainbow.jpg");
+    background-image: url("../assets/img/food-rainbow-removebg.png");
     min-height: 5em;
     width: 100%;
     max-width: 700px;
@@ -315,6 +315,7 @@ export default {
     justify-content: center;
 
     .recipe-photo {
+      cursor: pointer;
       background-color: $navbar-color;
       // border-radius: 50%;
       font-weight: bold;
@@ -439,8 +440,8 @@ export default {
       0 0.25rem 0.5rem 0 rgb(75, 207, 70) inset;
   }
 
-    .btn-photo {
-    border-radius: 50%;
+  .btn-photo {
+    border-radius: 20%;
     // line-height: 1.5rem;
     font-weight: 600;
     border: 1px solid #0c8001;

@@ -71,6 +71,12 @@ const router = new Router({
         import(/* webpackChunkName: "client-chunk-products" */ '@/views/AddRecipe.vue')
     },
     {
+      path: '/deleterecipe',
+      name: 'deleterecipe',
+      component: () =>
+        import(/* webpackChunkName: "client-chunk-products" */ '@/views/DeleteRecipe.vue')
+    },
+    {
       path: '/recipes/:id',
       name: 'recipe',
       props: true,

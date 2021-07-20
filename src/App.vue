@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nav-bar></nav-bar>
+    <nav-bar class="nav"></nav-bar>
     <div class="main-wrapper">
       <router-view />
     </div>
@@ -55,6 +55,10 @@ body {
     -moz-osx-font-smoothing: grayscale;
     font-size: 16px;
     color: #2c3e50;
+
+    .nav {
+      position: fixed;
+    }
 
     .new-content-available-toastr {
       position: absolute;
